@@ -1,0 +1,7 @@
+Binaries/*
+Saved/*
+Intermediate/*
+
+conanbuildinfo.json
+conanbuildinfo.txt
+conaninfo.txt
