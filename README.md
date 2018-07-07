@@ -1,4 +1,4 @@
-# In-Engine Audio+Video Capture Plugin for Unreal Engine 4
+# In-Engine Audio and Video Capture Plugin for Unreal Engine 4
 
 This plugin utilises the [MovieSceneCapture](https://api.unrealengine.com/INT/API/Runtime/MovieSceneCapture/index.html) and [AudioMixer](https://api.unrealengine.com/INT/API/Runtime/AudioMixer/index.html) modules to capture both audio and video from Unreal Engine 4 projects, without the need for external screen capture tools. This overcomes the lack of audio support when exporting movies using Sequencer, and also facilitates capturing audio and video when performing offscreen rendering on a headless device or inside an NVIDIA Docker container under Linux.
 
@@ -15,7 +15,7 @@ The plugin acts as a [MediaIPC](https://github.com/adamrehn/MediaIPC) producer p
 ## Requirements
 
 - Unreal Engine 4.19.0 or newer
-- CMake 3.8 or newer
+- [CMake](https://cmake.org/) 3.8 or newer
 - [ue4cli](https://github.com/adamrehn/ue4cli)
 - [conan-ue4cli](https://github.com/adamrehn/conan-ue4cli)
 - One of the public header files for the UE4 AudioMixer module includes a private header file, causing compilation errors when included by non-Engine modules. To fix this, run the script `patch-headers.py` in the [scripts](./scripts) directory.
