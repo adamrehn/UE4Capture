@@ -2,7 +2,7 @@ from conans import ConanFile, CMake, tools
 
 class MediaIPCUE4Conan(ConanFile):
     name = "MediaIPC-ue4"
-    version = "0.0.1"
+    version = "0.0.2"
     license = "MIT"
     url = "https://github.com/adamrehn/UE4Capture/recipes/MediaIPC"
     description = "libMediaIPC custom build for UE4"

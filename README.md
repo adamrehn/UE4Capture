@@ -27,13 +27,14 @@ The plugin acts as a [MediaIPC](https://github.com/adamrehn/MediaIPC) producer p
 
 Getting started with UE4Capture plugin is extremely simple. First, create a MediaIPC consumer to receive the capture output:
 
-- Grab the [MediaIPC](https://github.com/adamrehn/MediaIPC) source code and modify an example consumer (e.g [rawdump_consumer.cpp](https://github.com/adamrehn/MediaIPC/blob/master/examples/consumers/rawdump_consumer.cpp)) to use the prefix **"UE4Capture"** instead of **"TestPrefix-"**.
-- Build MediaIPC and run the consumer executable. It should display the text *"Awaiting control block from producer process..."*.
+- Grab the [MediaIPC](https://github.com/adamrehn/MediaIPC) source code and build the CMake project, including the example producers and consumers.
+- Run the executable for an example consumer (e.g [rawdump_consumer.cpp](https://github.com/adamrehn/MediaIPC/blob/master/examples/consumers/rawdump_consumer.cpp)) with the command-line argument **"UE4Capture"**, which will set the correct prefix value.
+- The consumer should display the text *"Awaiting control block from producer process..."*.
 
 Then, setup your UE4 project to act as the MediaIPC producer process:
 
 - Create a new C++ UE4 project and copy the UE4Capture directory from the [plugin](./plugin) directory to your project's `Plugins` directory.
-- Modify your default game mode to inherit from the [ACaptureGameMode](./plugin/UE4Capture/Source/UE4Capture/Public/CaptureGameMode.h) base class.
+- Modify your default game mode to inherit from the [ACaptureGameMode](./plugin/UE4Capture/Source/UE4Capture/Public/CaptureGameMode.h) base class *(may not work under Windows)*, or copy the code into your own game mode *(works under all platforms.)*
 - Build the project by running the command `ue4 build` from the directory containing the project's .uproject file.
 - Run the project by running the command `ue4 run -game -AudioMixer` from the directory containing the project's .uproject file.
 
