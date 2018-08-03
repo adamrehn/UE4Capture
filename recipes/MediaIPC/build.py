@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import argparse, subprocess, sys
+import argparse, subprocess, sys, ue4cli
 
 # Parse our command-line arguments
 parser = argparse.ArgumentParser()
@@ -7,13 +7,17 @@ parser.add_argument("--upload", default=None, help="Upload built package to the 
 args = parser.parse_args()
 
 # Query ue4cli for the UE4 version string
-proc = subprocess.Popen(["ue4", "version", "short"], stdout=subprocess.PIPE, stderr=subprocess.PIPE, universal_newlines=True)
-(stdout, stderr) = proc.communicate(input)
-if proc.returncode != 0:
-    raise Exception("failed to retrieve UE4 version string")
+ue4 = ue4cli.UnrealManagerFactory.create()
+versionFull = ue4.getEngineVersion()
+versionMinor = int(ue4.getEngineVersion('minor'))
+
+# Verify that the detected version of UE4 is new enough
+if versionMinor < 19:
+    print('Error: UE4Capture requires Unreal Engine 4.19 or newer, detected version {}.'.format(versionFull), file=sys.stderr)
+    sys.exit(1)
 
 # Build the Conan package, using the Engine version as the channel name
-channel = stdout.strip()
+channel = versionFull
 if subprocess.call(["conan", "create", ".", "adamrehn/{}".format(channel), "--profile", "ue4"]) != 0:
     sys.exit(1)
 
