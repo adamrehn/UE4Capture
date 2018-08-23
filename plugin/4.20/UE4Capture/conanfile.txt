@@ -1,0 +1,5 @@
+[requires]
+MediaIPC-ue4/0.0.2@adamrehn/4.20
+
+[generators]
+json

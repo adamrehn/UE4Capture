@@ -1,0 +1,23 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "1.1",
+	"FriendlyName": "UE4Capture",
+	"Description": "In-Engine Audio+Video Capture",
+	"Category": "Other",
+	"CreatedBy": "Adam Rehn and Aidan Possemiers",
+	"CreatedByURL": "",
+	"DocsURL": "",
+	"MarketplaceURL": "",
+	"SupportURL": "",
+	"CanContainContent": false,
+	"IsBetaVersion": false,
+	"Installed": false,
+	"Modules": [
+		{
+			"Name": "UE4Capture",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		}
+	]
+}
