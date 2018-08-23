@@ -18,7 +18,7 @@ The plugin acts as a [MediaIPC](https://github.com/adamrehn/MediaIPC) producer p
 - [CMake](https://cmake.org/) 3.8 or newer
 - [ue4cli](https://github.com/adamrehn/ue4cli)
 - [conan-ue4cli](https://github.com/adamrehn/conan-ue4cli)
-- One of the public header files for the UE4 AudioMixer module includes a private header file, causing compilation errors when included by non-Engine modules. To fix this, run the script `patch-headers.py` in the [scripts](./scripts) directory.
+- Under Unreal Engine 4.19, one of the public header files for the UE4 AudioMixer module includes a private header file, causing compilation errors when included by non-Engine modules. To fix this, run the script `patch-headers.py` in the [scripts](./scripts) directory. **This issue is fixed in Unreal Engine 4.20.**
 - The Conan package for libMediaIPC needs to be compiled by running the script `build.py` in the [recipes/MediaIPC](./recipes/MediaIPC) directory.
 - Audio capture only works when using an output device based on the AudioMixer module, which requires running the game with the `-AudioMixer` command-line argument.
 
@@ -33,7 +33,7 @@ Getting started with UE4Capture plugin is extremely simple. First, create a Medi
 
 Then, setup your UE4 project to act as the MediaIPC producer process:
 
-- Create a new C++ UE4 project and copy the UE4Capture directory from the [plugin](./plugin) directory to your project's `Plugins` directory.
+- Create a new C++ UE4 project and copy the UE4Capture directory from the appropriate [plugin](./plugin) subdirectory for your Engine version to your project's `Plugins` directory.
 - Modify your default game mode to inherit from the [ACaptureGameMode](./plugin/UE4Capture/Source/UE4Capture/Public/CaptureGameMode.h) base class *(may not work under Windows)*, or copy the code into your own game mode *(works under all platforms.)*
 - Build the project by running the command `ue4 build` from the directory containing the project's .uproject file.
 - Run the project by running the command `ue4 run -game -AudioMixer` from the directory containing the project's .uproject file.
