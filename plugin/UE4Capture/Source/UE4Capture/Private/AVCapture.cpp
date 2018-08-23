@@ -6,9 +6,6 @@
 #include "Engine.h"
 #include "AudioMixerDevice.h"
 
-
-#include <iostream>
-
 namespace UE4Capture {
 
 AVCapture::AVCapture(const CaptureOptions& options)
