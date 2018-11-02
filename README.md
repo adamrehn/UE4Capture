@@ -19,7 +19,7 @@ The plugin acts as a [MediaIPC](https://github.com/adamrehn/MediaIPC) producer p
 - [ue4cli](https://github.com/adamrehn/ue4cli)
 - [conan-ue4cli](https://github.com/adamrehn/conan-ue4cli)
 - Under Unreal Engine 4.19, one of the public header files for the UE4 AudioMixer module includes a private header file, causing compilation errors when included by non-Engine modules. To fix this, run the script `patch-headers.py` in the [scripts](./scripts) directory. **This issue is fixed in Unreal Engine 4.20.**
-- The Conan package for libMediaIPC needs to be compiled by running the script `build.py` in the [recipes/MediaIPC](./recipes/MediaIPC) directory.
+- The Conan package for libMediaIPC needs to be compiled by running the command `build.py MediaIPC-ue4` from the [**ue4-conan-recipes**](https://github.com/adamrehn/ue4-conan-recipes) repository.
 - Audio capture only works when using an output device based on the AudioMixer module, which requires running the game with the `-AudioMixer` command-line argument.
 
 
