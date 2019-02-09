@@ -12,7 +12,7 @@ void ACaptureGameMode::EndPlay(const EEndPlayReason::Type EndPlayReason)
 	//Stop capturing
 	if (this->capture.IsValid() == true)
 	{
-		this->capture->StopCapture(true);
+		this->capture->StopCapture(EndPlayReason == EEndPlayReason::Quit);
 		this->capture.Reset(nullptr);
 	}
 	
