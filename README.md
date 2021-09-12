@@ -1,5 +1,9 @@
 # In-Engine Audio and Video Capture Plugin for Unreal Engine 4
 
+---
+# [DEPRECATED] This project is no longer maintained or supported. We recommend that all developers upgrade to Unreal Engine 4.27 or newer and use the official Pixel Streaming plugin instead, which is maintained and supported by Epic Games.
+---
+
 This plugin utilises the [MovieSceneCapture](https://api.unrealengine.com/INT/API/Runtime/MovieSceneCapture/index.html) and [AudioMixer](https://api.unrealengine.com/INT/API/Runtime/AudioMixer/index.html) modules to capture both audio and video from Unreal Engine 4 projects, without the need for external screen capture tools. This overcomes the lack of audio support when exporting movies using Sequencer, and also facilitates capturing audio and video when performing offscreen rendering on a headless device or inside an NVIDIA Docker container under Linux.
 
 The plugin acts as a [MediaIPC](https://github.com/adamrehn/MediaIPC) producer process, transmitting data to any running MediaIPC consumer process that has been initialised with the prefix **"UE4Capture"**. For details on creating and using MediaIPC consumers, see the documentation from the [MediaIPC GitHub repository](https://github.com/adamrehn/MediaIPC).
